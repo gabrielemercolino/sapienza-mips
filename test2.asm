@@ -1,5 +1,8 @@
-.globl kek
+.globl print_string
 
-kek:
-	li $t2, 0x100
+# print_string(string& v0)
+print_string:
+	move $a0, $v0
+	li $v0, 4
+	syscall
 	jr $ra

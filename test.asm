@@ -1,27 +1,20 @@
 # IMPORTANT:
-# 	- set Settings/assemble all files in directory
-#		- set Settings/initialize pc to mains
+# 	- set Settings->assemble all files in directory
+#		- set Settings->initialize pc to main
 #		- if ".globl main" is set you can start from any file
 
 .globl main
 
 .data
-HELLO: .asciiz "Hello world"
+HELLO: .asciiz "Hello world\n"
 
 .text
-print:
-	li $v0, 4
-	la $a0, HELLO
-	syscall
-	jr $ra
-
 main:
-	li $t1, 100
-	add $t1, $t1, $t1
-	jal kek
-	jal print
+	# print_string(string& v0)
+	la $v0, HELLO
+	jal print_string
 
 exit:
-	li $v0, 17
-	li $a0, 0
+	li $v0, 17	# exit with code
+	li $a0, 0		# 0 = no error
 	syscall
