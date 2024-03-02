@@ -1,6 +1,6 @@
 # IMPORTANT:
 #		- set Settings->initialize pc to main
-#		- if ".globl main" is set you can start from any file
+#		- start from this file
 #		- otherwise you can run this from the cli with `mars-mips sm nc test.asm`
 
 .globl main
