@@ -1,9 +1,11 @@
 # IMPORTANT:
-# 	- set Settings->assemble all files in directory
 #		- set Settings->initialize pc to main
 #		- if ".globl main" is set you can start from any file
+#		- otherwise you can run this from the cli with `mars-mips sm nc test.asm`
 
 .globl main
+
+.include "test2.asm"
 
 .data
 HELLO: .asciiz "Hello world\n"
