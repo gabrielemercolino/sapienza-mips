@@ -16,26 +16,9 @@
         "type": "github"
       }
     },
-    "old-python-nixpkgs": {
-      "locked": {
-        "lastModified": 1627296584,
-        "narHash": "sha256-rbzcIhzq0XSY8NmhEOpgQvvGLoXtM5lnsv5ymZced8o=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "2030abed5863fc11eccac0735f27a0828376c84e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "2030abed5863fc11eccac0735f27a0828376c84e",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs",
-        "old-python-nixpkgs": "old-python-nixpkgs"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
