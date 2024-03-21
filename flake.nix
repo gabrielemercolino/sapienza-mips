@@ -21,7 +21,7 @@
 
             shellHook = ''
 							clear
-              echo "welcome to mips shell!" | ${pkgs.cowsay}/bin/cowsay | ${pkgs.lolcat}/bin/lolcat
+              echo "welcome to mips shell!" | ${pkgs.lolcat}/bin/lolcat
               exec zsh 
             '';
           };
