@@ -6,6 +6,9 @@ DIM: .word 20
 
 .text
 diagonale_eff:
+	sub 	$sp, $sp, 4
+	sw		$ra, 0($sp)
+
 	la 		$t0, vec
 	lw 		$t1, DIM
 	mul 	$t3, $t1, $t1
@@ -24,6 +27,8 @@ ciclo:
 
 fine:
 	move	$a0, $t2
-	li		$v0, 1
-	syscall
-	jr $ra
+	jal 	println_int
+	
+	lw		$ra, 0($sp)
+	add		$sp, $sp, 4
+	jr 		$ra

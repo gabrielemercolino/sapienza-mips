@@ -1,11 +1,16 @@
 .globl hello_world
 
 .data
-hello: .asciiz "Hello world\n"
+hello: .asciiz "Hello world"
 
 .text
 hello_world:
+	sub		$sp, $sp, 4
+	sw		$ra, 0($sp)
+	
 	la 		$a0, hello
-	li 		$v0, 4
-	syscall
-	jr $ra
+	jal 	println_str
+	
+	lw		$ra, 0($sp)
+	add		$sp, $sp, 4
+	jr 		$ra
