@@ -1,5 +1,7 @@
 .globl print_int 	 print_float 	 print_double 	print_str   print_char
-.globl println_int println_float println_double println_str println_char
+.globl println_int println_float println_double println_str println_char	println
+
+.globl int_code    float_code    double_code    str_code    char_code
 
 .data
 
@@ -108,3 +110,13 @@ println_char:
 	add	$sp, $sp, 4
 	jr 	$ra
 
+println:
+	sub	$sp, $sp, 4
+	sw	$ra, 0($sp)
+	
+	li	$a0, '\n'
+	jal	print_char
+	
+	lw	$ra, 0($sp)
+	add	$sp, $sp, 4
+	jr 	$ra
