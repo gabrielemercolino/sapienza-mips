@@ -52,8 +52,8 @@ println_int:
 	li	$a0, '\n'
 	jal	print_char
 	
-	lw		$ra, 0($sp)
-	add		$sp, $sp, 4
+	lw	$ra, 0($sp)
+	add	$sp, $sp, 4
 	jr 	$ra
 
 # $f12: float
@@ -65,8 +65,8 @@ println_float:
 	li	$a0, '\n'
 	jal	print_char
 	
-	lw		$ra, 0($sp)
-	add		$sp, $sp, 4
+	lw	$ra, 0($sp)
+	add	$sp, $sp, 4
 	jr 	$ra
 
 # $f12: double
@@ -78,8 +78,8 @@ println_double:
 	li	$a0, '\n'
 	jal	print_char
 	
-	lw		$ra, 0($sp)
-	add		$sp, $sp, 4
+	lw	$ra, 0($sp)
+	add	$sp, $sp, 4
 	jr 	$ra
 
 # $a0: &string
@@ -91,8 +91,8 @@ println_str:
 	li	$a0, '\n'
 	jal	print_char
 	
-	lw		$ra, 0($sp)
-	add		$sp, $sp, 4
+	lw	$ra, 0($sp)
+	add	$sp, $sp, 4
 	jr 	$ra
 
 # $a0: char
@@ -104,7 +104,7 @@ println_char:
 	li	$a0, '\n'
 	jal	print_char
 	
-	lw		$ra, 0($sp)
-	add		$sp, $sp, 4
+	lw	$ra, 0($sp)
+	add	$sp, $sp, 4
 	jr 	$ra
 
