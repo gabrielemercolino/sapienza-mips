@@ -10,6 +10,9 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      script = ''
+        mars-mips sm p nc $1
+      '';
     in
     {
       devShells.${system}.default =
@@ -17,6 +20,7 @@
           {
             nativeBuildInputs = with pkgs; [
               mars-mips
+              (writeShellScriptBin "mips" script)
             ];
 
             shellHook = ''
