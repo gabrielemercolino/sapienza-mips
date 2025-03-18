@@ -1,33 +1,29 @@
 {
   description = "mips shell";
 
-  inputs =
-    {
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    };
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+  };
 
-  outputs = { self, nixpkgs, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      script = ''
-        mars-mips sm p nc $1
-      '';
-    in
-    {
-      devShells.${system}.default =
-        pkgs.mkShell
-          {
-            nativeBuildInputs = with pkgs; [
-              mars-mips
-              (writeShellScriptBin "mips" script)
-            ];
+  outputs = {nixpkgs, ...}: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    script = ''
+      mars-mips sm p nc $1
+    '';
+  in {
+    devShells.${system}.default =
+      pkgs.mkShell
+      {
+        nativeBuildInputs = with pkgs; [
+          mars-mips
+          (writeShellScriptBin "mips" script)
+        ];
 
-            shellHook = ''
-							clear
-              echo "welcome to mips shell!" | ${pkgs.lolcat}/bin/lolcat
-              exec zsh 
-            '';
-          };
-    };
+        shellHook = ''
+          clear
+          echo "welcome to mips shell!" | ${pkgs.lolcat}/bin/lolcat
+        '';
+      };
+  };
 }
